@@ -317,3 +317,7 @@ svg {
     background-color: #c1e7f1;
     box-shadow: none;
 }
+
+#addChatTitle{
+    font-size:40px !important;
+}
