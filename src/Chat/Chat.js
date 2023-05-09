@@ -1,12 +1,26 @@
 import "./Chat.css"
-import mainPFP from "../Pictures/user3-icon.jpg"
-import add from "../Pictures/add.png"
-import userPFP from "../Pictures/user1-icon.jpg"
-import user2PFP from "../Pictures/user2-icon.jpg"
-import logo from "../Pictures/logo.png"
-import sendIcon from "../Pictures/send-icon.png"
+import mainPFP from "../Pictures/user3-icon.jpg";
+import add from "../Pictures/add.png";
+import userPFP from "../Pictures/user1-icon.jpg";
+import user2PFP from "../Pictures/user2-icon.jpg";
+import logo from "../Pictures/logo.png";
+import sendIcon from "../Pictures/send-icon.png";
+import {useEffect} from "react";
+import ChatLoad from "./ChatLoad"
+import updateSize from "./ChatLoad";
 
 function Chat() {
+    useEffect(() => {
+        const chatLoad = document.createElement('script');
+        chatLoad.src = ChatLoad;
+        chatLoad.type = "text/babel";
+        document.body.appendChild(chatLoad);
+        updateSize();
+        return () => {
+            document.body.removeChild(chatLoad);
+        }
+    }, []);
+
     return (
         <>
             <div id="main">
@@ -64,7 +78,7 @@ function Chat() {
                     <div id="chat-footer">
                         <input type="text" id="message-input" placeholder="Type your message..."/>
                         <button id="send-btn" type="submit" className="button-8">
-                            <img id="send-icon" src={sendIcon} height="40" alt="send"/>
+                            <img id="send-icon" src={sendIcon} height="28" width="40" alt="send"/>
                         </button>
                     </div>
                 </div>
@@ -73,21 +87,5 @@ function Chat() {
     );
 }
 
-var root=document.querySelector(':root');
-var main=document.getElementById('main');
-
-window.addEventListener('resize',() =>{
-    if(window.innerWidth<=750){
-        root.style.setProperty('--mainHeight','100vh');
-        root.style.setProperty('--mainWidth','100vh');
-        main.style.setProperty('left','0');
-        main.style.setProperty('top','0');
-
-    }
-    else{
-        root.style.setProperty('--mainHeight','max(80vh, 500px);');
-        root.style.setProperty('--mainWidth','max(80vw, 700px)');
-    }
-});
 
 export default Chat
