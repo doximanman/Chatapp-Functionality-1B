@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: Comic Sans MS !important;
+    font-family: Comic Sans MS, sans-serif !important;
 }
 
 #main {
@@ -143,6 +143,7 @@ body {
 }
 
 #chat-body {
+    padding-top:10px;
     width:calc(var(--chatWidth));
     height: calc(100% - var(--listHeight) - 30px);
     position:absolute;
@@ -287,8 +288,6 @@ body {
     box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
     box-sizing: border-box;
     color: #82d0e3;
-    font-size: large !important;
-    font-weight: bold !important;
     cursor: pointer;
     font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
     font-size: 13px;

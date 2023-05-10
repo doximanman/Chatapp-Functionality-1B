@@ -43,7 +43,7 @@ function Chat() {
         return <ChatMessage {...message} key={key}/>;
     });
 
-    const userInput=useRef('');
+    const userInput=useRef(null);
 
     const newMessage=function(){
 
