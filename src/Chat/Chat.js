@@ -10,6 +10,8 @@ import ChatTitle from "./ChatTitle";
 
 function Chat() {
 
+
+    // Chat data
     const chats = [{
         pfp: userPFP,
         name: "Bill Tin",
@@ -23,21 +25,10 @@ function Chat() {
         lastMessage: "Foo!!",
         classes: ""
     }];
-
-    const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
-
-
-    const chatList = chats.map((chat, key) => {
-        return <ChatPreview {...chat} key={key}/>;
-    })
-
-
-    // Chat Data
     const user = {
         pfp: mainPFP,
         name: "Alice Smith"
     }
-
     const messages = [{
         message: "Hello!",
         time: "00:00",
@@ -48,7 +39,13 @@ function Chat() {
         type: "sent"
     }]
 
+    // selected user
+    const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
 
+    // loading components
+    const chatList = chats.map((chat, key) => {
+        return <ChatPreview {...chat} key={key}/>;
+    })
     const messageList = messages.map((message, key) => {
         return <ChatMessage {...message} key={key}/>;
     })
