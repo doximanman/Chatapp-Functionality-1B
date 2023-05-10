@@ -2,17 +2,16 @@ import "./Chat.css"
 import mainPFP from "../Pictures/user3-icon.jpg";
 import sendIcon from "../Pictures/send-icon.png";
 import Profile from "./Profile";
-import userPFP from "../Pictures/user1-icon.jpg";
-import user2PFP from "../Pictures/user2-icon.jpg";
-import ChatPreview from "./ChatPreview";
 import ChatTitle from "./ChatTitle";
 import {useState, useRef} from "react";
 import ChatMessage from "./ChatMessage";
+import ChatPreview from "./ChatPreview";
+import userPFP from "../Pictures/user1-icon.jpg";
+import user2PFP from "../Pictures/user2-icon.jpg";
 
 function Chat() {
 
-    // Chat data
-    const chats = [{
+    const [contacts,setContacts]=useState([{
         pfp: userPFP,
         name: "Bill Tin",
         lastDate: "25/4/2023, 11:01:54 PM",
@@ -24,12 +23,14 @@ function Chat() {
         lastDate: "25/4/2023, 11:01:54 PM",
         lastMessage: "Foo!!",
         classes: ""
-    }];
+    }]);
+
+    // Chat data
     const user = {
         pfp: mainPFP,
         name: "Alice Smith"
     }
-    const [messages,setMessages]=useState([{
+    const [messages, setMessages] = useState([{
         message: "Hellooooooooooooooooooooooooo!",
         time: "00:00",
         type: "received"
@@ -43,43 +44,49 @@ function Chat() {
         return <ChatMessage {...message} key={key}/>;
     });
 
-    const userInput=useRef(null);
+    const chatList=contacts.map((contact,key)=>{
+        return <ChatPreview {...contact} key={key} />
+    });
 
-    const newMessage=function(){
+    const userInput = useRef(null);
 
-        const date=new Date();
+    const newMessage = function () {
+        const date = new Date();
+        const input = userInput.current.value;
+        if (/\S/.test(input)) {
+            let msg = {message: userInput.current.value, time: date.getHours() + ":" + date.getMinutes(), type: "sent"};
+            console.log(msg);
 
-        let msg={message:userInput.current.value,time:date.getHours()+":"+date.getMinutes(),type:"sent"};
-        console.log(msg);
-
-        document.getElementById('message-input').value='';
-
-        setMessages(messages => [msg,...messages]);
+            setMessages(messages => [msg, ...messages]);
+        }
+        document.getElementById('message-input').value = '';
     }
 
-    // selected user
-    const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
+    let selectedUser=contacts.filter((contact)=>{
+        return contact.classes.includes("selected-preview");
+    })[0];
 
-    // loading components
-    const chatList = chats.map((chat, key) => {
-        return <ChatPreview {...chat} key={key}/>;
-    })
+    const enterKey = function (e) {
+        if (e.key === "Enter")
+            newMessage();
+    }
 
     return (
         <>
             <div id="main">
-                <Profile {...user}/>
+                <Profile user={user} contacts={contacts} setContacts={setContacts}/>
                 <div id="chat-list">
                     {chatList}
                 </div>
                 <div id="chat">
-                    <ChatTitle {...selectedUser} />
+                    <ChatTitle pfp={selectedUser.pfp} name={selectedUser.name} />
                     <div id="chat-body">
                         {messageList}
                     </div>
                     <div id="chat-footer">
                         <input ref={userInput} type="text" id="message-input" placeholder="Type your message..."/>
-                        <button onClick={newMessage} id="send-btn" type="submit" className="button-8">
+                        <button onClick={newMessage} onKeyUp={enterKey} id="send-btn" type="submit"
+                                className="button-8">
                             <img id="send-icon" src={sendIcon} height="28" width="40" alt="send"/>
                         </button>
                     </div>

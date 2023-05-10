@@ -154,7 +154,7 @@ body {
     background-repeat: no-repeat;
     display:flex;
     flex-direction: column-reverse;
-    overflow-y:scroll;
+    overflow-y:auto;
 }
 
 #chat-footer {
@@ -263,7 +263,7 @@ body {
     top: -30px;
     height: 2vh;
     left: calc(100% - 66px);
-    cursor: pointer;
+    cursor: pointer !important;
     text-align: center;
     display: flex;
     justify-content: center;

@@ -1,11 +1,37 @@
 import add from "../Pictures/add.png";
+import userPFP from "../Pictures/user1-icon.jpg"
+import {useRef} from "react";
 
-function Profile({pfp,name}){
-    return(
+function Profile({user,contacts,setContacts}) {
+
+    const contactInput = useRef(null);
+
+    function newContact(){
+        if(/\S/.test(contactInput.current.value)) {
+            let contact = {
+                pfp: userPFP,
+                name: contactInput.current.value,
+                lastDate: "25/4/2023, 11:01:54 PM",
+                lastMessage: "WORLD",
+                classes: ""
+            }
+            setContacts(contacts => [...contacts,contact]);
+            document.getElementById('addChat').style.setProperty('display','none');
+            document.body.removeChild(document.body.lastChild);
+        }
+    }
+
+    function removeAttribute(){
+        document.getElementById('nameInput').value='';
+        document.getElementById('addChat').setAttribute('aria-hidden','false');
+    }
+
+
+    return (
         <div id="profile">
-            <img className="profile-pic" src={pfp} alt="Profile"/>
-            <div className="profile-name">{name}</div>
-            <img id="add-chat" data-bs-toggle="modal" data-bs-target="#addChat" src={add}
+            <img className="profile-pic" src={user.pfp} alt="Profile"/>
+            <div className="profile-name">{user.name}</div>
+            <img id="add-chat" onClick={removeAttribute} data-bs-toggle="modal" data-bs-target="#addChat" src={add}
                  alt="New Chat"/>
             <div className="modal" id="addChat" aria-labelledby="addChatTitle">
                 <div className="modal-dialog">
@@ -16,10 +42,10 @@ function Profile({pfp,name}){
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <input type="text" className="col-12" placeholder="Contact Name"/>
+                            <input ref={contactInput} id="nameInput" type="text" className="col-12" placeholder="Contact Name"/>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary">Add</button>
+                            <button onClick={newContact} type="button" className="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </div>

@@ -40,7 +40,6 @@
   },
   "description": "This app aims to allow people to chat with each other from anywhere in the world easily and intuitively, from one app.",
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
