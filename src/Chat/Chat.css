@@ -185,7 +185,7 @@ body {
     margin-bottom:20px;
     width:max-content;
     /*height:max-content;*/
-    max-width:40%;
+    max-width:min(40% , 500px);
     min-width:100px;
     /*min-height: 40px;*/
     word-break:break-word;

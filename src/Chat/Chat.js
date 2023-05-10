@@ -2,11 +2,12 @@ import "./Chat.css"
 import mainPFP from "../Pictures/user3-icon.jpg";
 import sendIcon from "../Pictures/send-icon.png";
 import Profile from "./Profile";
-import ChatMessage from "./ChatMessage";
 import userPFP from "../Pictures/user1-icon.jpg";
 import user2PFP from "../Pictures/user2-icon.jpg";
 import ChatPreview from "./ChatPreview";
 import ChatTitle from "./ChatTitle";
+import {useState, useRef} from "react";
+import ChatMessage from "./ChatMessage";
 
 function Chat() {
 
@@ -28,7 +29,7 @@ function Chat() {
         pfp: mainPFP,
         name: "Alice Smith"
     }
-    const messages = [{
+    const [messages,setMessages]=useState([{
         message: "Hellooooooooooooooooooooooooo!",
         time: "00:00",
         type: "received"
@@ -36,47 +37,25 @@ function Chat() {
         message: "Worldddddddddddddddddddddddddd!",
         time: "00:00",
         type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }, {
-        message: "World!",
-        time: "00:00",
-        type: "sent"
-    }]
+    }]);
+
+    const messageList = messages.map((message, key) => {
+        return <ChatMessage {...message} key={key}/>;
+    });
+
+    const userInput=useRef('');
+
+    const newMessage=function(){
+
+        const date=new Date();
+
+        let msg={message:userInput.current.value,time:date.getHours()+":"+date.getMinutes(),type:"sent"};
+        console.log(msg);
+
+        document.getElementById('message-input').value='';
+
+        setMessages(messages => [msg,...messages]);
+    }
 
     // selected user
     const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
@@ -84,9 +63,6 @@ function Chat() {
     // loading components
     const chatList = chats.map((chat, key) => {
         return <ChatPreview {...chat} key={key}/>;
-    })
-    const messageList = messages.map((message, key) => {
-        return <ChatMessage {...message} key={key}/>;
     })
 
     return (
@@ -102,8 +78,8 @@ function Chat() {
                         {messageList}
                     </div>
                     <div id="chat-footer">
-                        <input type="text" id="message-input" placeholder="Type your message..."/>
-                        <button id="send-btn" type="submit" className="button-8">
+                        <input ref={userInput} type="text" id="message-input" placeholder="Type your message..."/>
+                        <button onClick={newMessage} id="send-btn" type="submit" className="button-8">
                             <img id="send-icon" src={sendIcon} height="28" width="40" alt="send"/>
                         </button>
                     </div>
