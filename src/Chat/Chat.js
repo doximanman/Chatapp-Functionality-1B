@@ -5,8 +5,18 @@ import userPFP from "../Pictures/user1-icon.jpg";
 import user2PFP from "../Pictures/user2-icon.jpg";
 import logo from "../Pictures/logo.png";
 import sendIcon from "../Pictures/send-icon.png";
+import ChatPreview from "./ChatPreview/ChatPreview"
+import chats from "./ChatPreview/Chats";
 
 function Chat() {
+    const chatList=chats.map((chat,key)=>{
+        return <ChatPreview {...chat} key={key} />;
+    })
+
+    for (let i = 0; i < chats; i++) {
+        document.getElementById('chat-list').appendChild(<ChatPreview profileDetails={chats[i]}/>);
+    }
+
     return (
         <>
             <div id="main">
@@ -34,18 +44,7 @@ function Chat() {
                     </div>
                 </div>
                 <div id="chat-list">
-                    <div className="chat-preview selected-preview">
-                        <img className="profile-pic" src={userPFP} alt="Profile"/>
-                        <div className="profile-name">Bill Tin</div>
-                        <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <p className="last-message">WORLLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!</p>
-                    </div>
-                    <div className="chat-preview">
-                        <img className="profile-pic" src={user2PFP} alt="Profile"/>
-                        <div className="profile-name">Jack Black</div>
-                        <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <p className="last-message">Foo!</p>
-                    </div>
+                    {chatList}
                 </div>
                 <div id="chat">
                     <div id="chat-title">
