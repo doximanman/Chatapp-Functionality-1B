@@ -1,19 +1,14 @@
 import "./Chat.css"
 import mainPFP from "../Pictures/user3-icon.jpg";
+import sendIcon from "../Pictures/send-icon.png";
+import Profile from "./Profile";
+import ChatMessage from "./ChatMessage";
 import userPFP from "../Pictures/user1-icon.jpg";
 import user2PFP from "../Pictures/user2-icon.jpg";
-import logo from "../Pictures/logo.png";
-import sendIcon from "../Pictures/send-icon.png";
-import ChatPreview from "./ChatPreview"
-import Profile from "./Profile";
+import ChatPreview from "./ChatPreview";
 import ChatTitle from "./ChatTitle";
 
 function Chat() {
-
-    const user = {
-        pfp: mainPFP,
-        name: "Alice Smith"
-    }
 
     const chats = [{
         pfp: userPFP,
@@ -31,10 +26,32 @@ function Chat() {
 
     const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
 
+
     const chatList = chats.map((chat, key) => {
         return <ChatPreview {...chat} key={key}/>;
     })
 
+
+    // Chat Data
+    const user = {
+        pfp: mainPFP,
+        name: "Alice Smith"
+    }
+
+    const messages = [{
+        message: "Hello!",
+        time: "00:00",
+        type: "received"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }]
+
+
+    const messageList = messages.map((message, key) => {
+        return <ChatMessage {...message} key={key}/>;
+    })
 
     return (
         <>
@@ -46,12 +63,7 @@ function Chat() {
                 <div id="chat">
                     <ChatTitle {...selectedUser} />
                     <div id="chat-body">
-                        <div className="message message-received bubble">Hello!
-                            <div className="message-time">00:00</div>
-                        </div>
-                        <div className="message message-sent bubble">World!
-                            <div className="message-time">00:00</div>
-                        </div>
+                        {messageList}
                     </div>
                     <div id="chat-footer">
                         <input type="text" id="message-input" placeholder="Type your message..."/>
