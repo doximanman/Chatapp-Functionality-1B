@@ -1,35 +1,25 @@
 import "./Login.css"
-import logo from "../Pictures/logo.png"
+import Input from '../FormsItems/Input';
+import Button from '../FormsItems/Button';
+import Title from '../FormsItems/Title';
+import Background from '../FormsItems/Background';
+import BottomMessage from '../FormsItems/BottomMessage';
 
 function Login() {
     return (
         <>
+            <Background></Background>
             <form>
                 <div id="login-form">
-                    <div id="open" className="col-12">
-                        <img id="logo" src={logo} alt="logo"></img>
-                            <h1 className="col-10">Login to Message-Manager!</h1>
-                    </div>
-                    <div className="col-11 row ">
-                        <label className="col-sm-2 col-form-label name">Username</label>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" id="Username" required></input>
-                        </div>
-                    </div>
-                    <div className="col-11 row">
-                        <label className="col-sm-2 col-form-label name">Password</label>
-                        <div className="col-sm-10">
-                            <input type="password" className="form-control" id="Password" required></input>
-                        </div>
-                    </div>
-                    <button id="login-button" type="submit" className="btn btn-primary">Login</button>
-                    <div id="not-registered">Not registered? <a href="../Register/Register.html">Click here</a> to
-                        register
-                    </div>
+                    <Title title="Login to Message-Manager!"></Title>
+                    <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Username", divClass: "col-sm-10", type: "text", id: "Username" }}></Input>
+                    <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Password", divClass: "col-sm-10", type: "password", id: "Password" }}></Input>
+                    <Button description={{ id: "login-button", name: "Login" }}></Button>
+                    <BottomMessage description={{id:"not-registered", question:"Not regitered? ",link:"..\Register\Register.html", click:"Click here", goal:" to register"}}></BottomMessage>
                 </div>
-            </form>
+            </form >
         </>
-);
+    );
 }
 
-export default Login
+export default Login;
