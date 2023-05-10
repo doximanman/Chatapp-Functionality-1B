@@ -1,4 +1,3 @@
-
 import add from "../Pictures/add.png";
 
 function Profile({pfp,name}){

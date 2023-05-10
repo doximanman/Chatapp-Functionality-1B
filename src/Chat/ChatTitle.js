@@ -1,4 +1,3 @@
-import userPFP from "../Pictures/user1-icon.jpg";
 import logo from "../Pictures/logo.png";
 
 function ChatTitle({pfp,name}){
