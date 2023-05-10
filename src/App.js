@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 // import Chat from "./Chat/Chat.js"
 import Login from "./Login/Login";
-// import Register from "./Register/Register"
+import Register from "./Register/Register"
 import React from 'react'
 
 
@@ -12,7 +12,7 @@ function App() {
                 <Route path="/" element={<Login/>}></Route>
                 <Route path="/Login" element={<Login/>}></Route>
                 {/* <Route path="/Chat" element={<Chat/>}></Route> */}
-                {/* <Route path="/Register" element={<Register/>}></Route> */}
+                <Route path="/Register" element={<Register/>}></Route>
             </Routes>
         </BrowserRouter>
         

@@ -1,6 +1,8 @@
+import {Link} from "react-router-dom";
+
 function BottomMessage( {description} ) {
     return (
-        <div id={description.id}>{description.question}<a href={description.link}>{description.click}</a>{description.goal}</div>
+        <div id={description.id}>{description.question}<Link to={description.link}>{description.click}</Link>{description.goal}</div>
     );
 }
 
