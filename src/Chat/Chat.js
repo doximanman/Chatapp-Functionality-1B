@@ -5,22 +5,8 @@ import userPFP from "../Pictures/user1-icon.jpg";
 import user2PFP from "../Pictures/user2-icon.jpg";
 import logo from "../Pictures/logo.png";
 import sendIcon from "../Pictures/send-icon.png";
-import {useEffect} from "react";
-import ChatLoad from "./ChatLoad"
-import updateSize from "./ChatLoad";
 
 function Chat() {
-    useEffect(() => {
-        const chatLoad = document.createElement('script');
-        chatLoad.src = ChatLoad;
-        chatLoad.type = "text/babel";
-        document.body.appendChild(chatLoad);
-        updateSize();
-        return () => {
-            document.body.removeChild(chatLoad);
-        }
-    }, []);
-
     return (
         <>
             <div id="main">
@@ -52,13 +38,13 @@ function Chat() {
                         <img className="profile-pic" src={userPFP} alt="Profile"/>
                         <div className="profile-name">Bill Tin</div>
                         <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <div className="last-message">World!</div>
+                        <p className="last-message">WORLLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!</p>
                     </div>
                     <div className="chat-preview">
                         <img className="profile-pic" src={user2PFP} alt="Profile"/>
                         <div className="profile-name">Jack Black</div>
                         <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <div className="last-message">Foo!</div>
+                        <p className="last-message">Foo!</p>
                     </div>
                 </div>
                 <div id="chat">
