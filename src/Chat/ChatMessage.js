@@ -1,7 +1,6 @@
-
 function ChatMessage({message,time,type}){
 
-    const classes="message message-"+type+" bubble";
+    const classes="message message-"+type+" bubble item";
 
     return(
         <div className={classes}>

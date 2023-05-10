@@ -10,7 +10,6 @@ import ChatTitle from "./ChatTitle";
 
 function Chat() {
 
-
     // Chat data
     const chats = [{
         pfp: userPFP,
@@ -30,9 +29,49 @@ function Chat() {
         name: "Alice Smith"
     }
     const messages = [{
-        message: "Hello!",
+        message: "Hellooooooooooooooooooooooooo!",
         time: "00:00",
         type: "received"
+    }, {
+        message: "Worldddddddddddddddddddddddddd!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
+    }, {
+        message: "World!",
+        time: "00:00",
+        type: "sent"
     }, {
         message: "World!",
         time: "00:00",
