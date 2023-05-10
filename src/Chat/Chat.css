@@ -9,7 +9,7 @@
 @media (max-width: 930px) or (max-height: 568px){
     #root{
         --mainWidth: 100vw;
-        --mainHeight: 100vh;
+        --mainHeight: max(100vh,200px);
     }
 }
 
