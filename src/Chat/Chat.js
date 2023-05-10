@@ -1,57 +1,50 @@
 import "./Chat.css"
 import mainPFP from "../Pictures/user3-icon.jpg";
-import add from "../Pictures/add.png";
 import userPFP from "../Pictures/user1-icon.jpg";
 import user2PFP from "../Pictures/user2-icon.jpg";
 import logo from "../Pictures/logo.png";
 import sendIcon from "../Pictures/send-icon.png";
-import ChatPreview from "./ChatPreview/ChatPreview"
-import chats from "./ChatPreview/Chats";
+import ChatPreview from "./ChatPreview"
+import Profile from "./Profile";
+import ChatTitle from "./ChatTitle";
 
 function Chat() {
-    const chatList=chats.map((chat,key)=>{
-        return <ChatPreview {...chat} key={key} />;
+
+    const user = {
+        pfp: mainPFP,
+        name: "Alice Smith"
+    }
+
+    const chats = [{
+        pfp: userPFP,
+        name: "Bill Tin",
+        lastDate: "25/4/2023, 11:01:54 PM",
+        lastMessage: "WORLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!",
+        classes: "selected-preview"
+    }, {
+        pfp: user2PFP,
+        name: "Jack Black",
+        lastDate: "25/4/2023, 11:01:54 PM",
+        lastMessage: "Foo!!",
+        classes: ""
+    }];
+
+    const selectedUser = chats.filter((chat) => chat.classes.includes("selected-preview"))[0];
+
+    const chatList = chats.map((chat, key) => {
+        return <ChatPreview {...chat} key={key}/>;
     })
 
-    for (let i = 0; i < chats; i++) {
-        document.getElementById('chat-list').appendChild(<ChatPreview profileDetails={chats[i]}/>);
-    }
 
     return (
         <>
             <div id="main">
-                <div id="profile">
-                    <img className="profile-pic" src={mainPFP} alt="Profile"/>
-                    <div className="profile-name">User Name</div>
-                    <img id="add-chat" data-bs-toggle="modal" data-bs-target="#addChat" src={add}
-                         alt="New Chat"/>
-                    <div className="modal" id="addChat" aria-labelledby="addChatTitle">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title" id="addChatTitle">Add a New Chat</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <input type="text" className="col-12" placeholder="Contact Name"/>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Profile {...user}/>
                 <div id="chat-list">
                     {chatList}
                 </div>
                 <div id="chat">
-                    <div id="chat-title">
-                        <img className="profile-pic" src={userPFP} alt="Profile"/>
-                        <div className="profile-name">Bill Tin</div>
-                        <img id="side-logo" src={logo} alt="Chatapp"></img>
-                    </div>
+                    <ChatTitle {...selectedUser} />
                     <div id="chat-body">
                         <div className="message message-received bubble">Hello!
                             <div className="message-time">00:00</div>

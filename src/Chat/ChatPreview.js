@@ -1,4 +1,4 @@
-import userPFP from "../../Pictures/user1-icon.jpg";
+import userPFP from "../Pictures/user1-icon.jpg";
 
 
 function ChatPreview({pfp,name,lastDate,lastMessage,classes}){
