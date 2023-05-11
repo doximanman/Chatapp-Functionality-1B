@@ -1,6 +1,7 @@
 import add from "../Pictures/add.png";
 import userPFP from "../Pictures/user1-icon.jpg"
 import {useRef} from "react";
+import {useNavigate} from "react-router-dom";
 
 function Profile({user,setContacts}) {
 
@@ -30,13 +31,15 @@ function Profile({user,setContacts}) {
         }
     }
 
+    const navigate=useNavigate();
 
     return (
         <div id="profile">
             <img className="profile-pic" src={user.pfp} alt="Profile"/>
-            <div className="profile-name">{user.name}</div>
+            <div id="user-name" className="profile-name">{user.name}</div>
             <img id="add-chat" data-bs-toggle="modal" data-bs-target="#addChat" src={add}
                  alt="New Chat"/>
+            <button type="button" onClick={()=>navigate('/login')} className="btn btn-danger btn-sm" id="logout">Logout</button>
             <div className="modal" id="addChat" aria-labelledby="addChatTitle">
                 <div className="modal-dialog">
                     <div className="modal-content">

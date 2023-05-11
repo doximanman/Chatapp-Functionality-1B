@@ -15,7 +15,7 @@ function Chat() {
 
     const user = {
         pfp: mainPFP,
-        name: "Alice Smith"
+        name: "Alice Smithhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
     }
 
     const selectedUser = chats.filter((contact) => {
