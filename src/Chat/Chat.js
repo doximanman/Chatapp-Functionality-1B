@@ -18,22 +18,19 @@ function Chat() {
         name: "Alice Smithhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
     }
 
-    const selectedUser = chats.filter((contact) => {
+    const[selectedUser,setSelectedUser]=useState(chats.filter((contact) => {
         return contact.classes.includes("selected-preview");
-    })[0];
-
-    // whenever a message is added, the page is re-rendered.
-    const [messages,setMessages]=useState(selectedUser.messages);
+    })[0]);
 
     return (
         <>
             <div id="main">
                 <Profile user={user} setContacts={setContacts}/>
-                <ChatList chats={chats} messages={messages} setMessages={setMessages}/>
+                <ChatList chats={chats} user={selectedUser} setSelectedUser={setSelectedUser}/>
                 <div id="chat">
                     <ChatTitle user={selectedUser}/>
-                    <MessageList messages={messages} />
-                    <MessageSender setMessages={setMessages} contact={selectedUser} />
+                    <MessageList user={selectedUser} />
+                    <MessageSender contact={selectedUser} setSelectedUser={setSelectedUser} />
                 </div>
             </div>
         </>

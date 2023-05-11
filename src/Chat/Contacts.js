@@ -8,7 +8,7 @@ const contacts = [{
     lastMessage: "WORLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!",
     classes: "selected-preview",
     messages: [{
-        message: "Hellooooooooooooooooooooooooo!",
+        message: "Hellooooooooooooooooooooooooooooooooooooooooooooooooo!",
         time: "00:00",
         type: "received",
         date: "25/4/2023, 11:01:54 PM"

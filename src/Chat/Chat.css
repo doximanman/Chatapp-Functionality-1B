@@ -1,9 +1,24 @@
+.fullscreen{
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    overflow:hidden !important;
+}
+
+.hidden{
+    width:0 !important;
+    height:0 !important;
+}
+
 #root {
     --mainWidth: max(750px,80vw);
     --mainHeight: max(500px,80vh);
     --listWidth: 400px;
     --listHeight: 60px;
     --chatWidth: calc(var(--mainWidth) - var(--listWidth) - 2px);
+    overflow-x:hidden;
 }
 
 @media (max-width: 930px) or (max-height: 568px){
@@ -40,11 +55,8 @@ body {
     }
 }
 
-@media(max-width:632px){
-    #root{
-        --listWidth:283px;
-    }
-}
+
+
 
 #logout{
     position:absolute;
@@ -71,16 +83,16 @@ body {
 }
 
 #chat {
+    width: calc(100% - var(--listWidth));
     position: absolute;
-    top: 0;
+    top:0;
     left: var(--listWidth);
-    width: var(--chatWidth);
     height: 100%;
 }
 
 #side-logo {
     height: var(--listHeight);
-    width: auto;
+    max-width:100%;
     float: right;
     position: relative;
     top: -133%;
@@ -115,10 +127,10 @@ body {
 
 .last-message{
     font-size:14px;
-    width:var(--listWidth);
-    margin:0;
+    width:100%;
+    max-width:100%;
     position:relative;
-    top:-110%;
+    bottom:var(--listHeight);
     padding-left:50%;
     overflow:hidden;
     white-space:nowrap;
@@ -136,7 +148,7 @@ body {
 }
 
 .chat-preview {
-    width: var(--listWidth);
+    width: calc(var(--listWidth));
     height: var(--listHeight);
     border-bottom: 1px solid #8c8c8c;
     border-right: 1px solid #8c8c8c;
@@ -152,15 +164,34 @@ body {
 }
 
 #chat-title {
-    width: var(--chatWidth);
+    width:100%;
     height: var(--listHeight);
     border-bottom: 1px solid #8c8c8c;
     background-color: #f2f2f2
 }
 
+#go-back{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:var(--listHeight);
+    cursor:default;
+    background:transparent;
+    border:none !important;
+    font-size:0;
+    display:none;
+}
+
+@media (max-width:632px){
+    #go-back{
+        display:inline-block;
+    }
+}
+
 #chat-body {
     padding-top:10px;
-    width:calc(var(--chatWidth));
+    width:100%;
     height: calc(100% - var(--listHeight) - 30px);
     position:absolute;
     top:calc(0 - var(--listHeight));
@@ -186,6 +217,7 @@ body {
     border-radius: 0;
     border-width: 0;
     height: 30px;
+    border-bottom:1px solid black;
 }
 
 #send-icon {
@@ -294,6 +326,7 @@ body {
     left:calc(100% - 69px);
     text-align: center;
     border-radius: 0;
+    border-bottom:1px solid black;
 }
 
 .button-8 {
@@ -352,4 +385,24 @@ svg {
 
 #addChatTitle{
     font-size:40px !important;
+}
+
+@media(max-width:632px){
+    #root {
+        --chatWidth: 0;
+        --listWidth: 100vw;
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+    #chat{
+        overflow-y:auto;
+    }
+    #chat-list{
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+    .selected-preview{
+        background-color:white;
+        color:#4d4d4d;
+    }
 }

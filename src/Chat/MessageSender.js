@@ -2,7 +2,7 @@ import sendIcon from "../Pictures/send-icon.png";
 import {useRef} from "react";
 
 
-function MessageSender({setMessages,contact}){
+function MessageSender({contact,setSelectedUser}){
 
     const userInput = useRef(null);
 
@@ -21,9 +21,8 @@ function MessageSender({setMessages,contact}){
             }
 
             let msg = {message: userInput.current.value, time: hours + ":" + minutes, type: "sent",date: date.toLocaleString()};
-            console.log(msg);
             contact.messages.unshift(msg);
-            setMessages(messages=>[msg,...messages]);
+            setSelectedUser({...contact});
         }
         document.getElementById('message-input').value = '';
     }

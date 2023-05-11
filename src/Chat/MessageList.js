@@ -1,8 +1,8 @@
 import ChatMessage from "./ChatMessage";
 
-function MessageList({messages}){
+function MessageList({user}){
 
-    const messageList = messages.map((message, key) => {
+    const messageList = user.messages.map((message, key) => {
         return <ChatMessage {...message} key={key}/>;
     });
 
