@@ -2,7 +2,7 @@ import sendIcon from "../Pictures/send-icon.png";
 import {useRef} from "react";
 
 
-function MessageSender({setMessages}){
+function MessageSender({setMessages,contact}){
 
     const userInput = useRef(null);
 
@@ -10,9 +10,19 @@ function MessageSender({setMessages}){
         const date = new Date();
         const input = userInput.current.value;
         if (/\S/.test(input)) {
-            let msg = {message: userInput.current.value, time: date.getHours() + ":" + date.getMinutes(), type: "sent"};
-            console.log(msg);
 
+            let hours=date.getHours();
+            if(hours<10){
+                hours='0'+hours;
+            }
+            let minutes=date.getMinutes();
+            if(minutes<10){
+                minutes='0'+minutes;
+            }
+
+            let msg = {message: userInput.current.value, time: hours + ":" + minutes, type: "sent",date: date.toLocaleString()};
+            console.log(msg);
+            contact.messages.unshift(msg);
             setMessages(messages=>[msg,...messages]);
         }
         document.getElementById('message-input').value = '';

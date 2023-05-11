@@ -1,9 +1,8 @@
 import "./Chat.css"
 import mainPFP from "../Pictures/user3-icon.jpg";
-import sendIcon from "../Pictures/send-icon.png";
 import Profile from "./Profile";
 import ChatTitle from "./ChatTitle";
-import {useState, useRef} from "react";
+import {useState} from "react";
 import MessageList from "./MessageList";
 import ChatList from "./ChatList";
 import contacts from "./Contacts"
@@ -30,11 +29,11 @@ function Chat() {
         <>
             <div id="main">
                 <Profile user={user} setContacts={setContacts}/>
-                <ChatList chats={chats} setMessages={setMessages}/>
+                <ChatList chats={chats} messages={messages} setMessages={setMessages}/>
                 <div id="chat">
                     <ChatTitle user={selectedUser}/>
                     <MessageList messages={messages} />
-                    <MessageSender setMessages={setMessages} />
+                    <MessageSender setMessages={setMessages} contact={selectedUser} />
                 </div>
             </div>
         </>

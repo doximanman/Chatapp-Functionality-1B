@@ -1,6 +1,6 @@
 import ChatPreview from "./ChatPreview";
 
-function ChatList({chats,setMessages}){
+function ChatList({chats,messages,setMessages}){
 
     function changeSelection(contact){
         if(!contact.classes.includes('selected-preview')) {
@@ -16,7 +16,7 @@ function ChatList({chats,setMessages}){
     }
 
     const chatList=chats.map((contact, key) => {
-        return <ChatPreview contact={contact} changeSelection={changeSelection} key={key}/>
+        return <ChatPreview contact={contact} changeSelection={changeSelection} messages={messages} key={key}/>
     });
 
     return(

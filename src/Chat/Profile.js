@@ -22,7 +22,8 @@ function Profile({user,setContacts}) {
                 name: contactInput.current.value,
                 lastDate: "25/4/2023, 11:01:54 PM",
                 lastMessage: "WORLD",
-                classes: ""
+                classes: "",
+                messages:[]
             }
             setContacts(contacts=>[...contacts,contact]);
             contactInput.current.value='';
