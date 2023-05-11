@@ -1,14 +1,23 @@
+function ChatPreview({contact,changeSelection}) {
+    const className="chat-preview "+contact.classes;
 
-function ChatPreview({pfp,name,lastDate,lastMessage,classes}){
+    const lastMessage=contact.messages[0];
 
-    let className="chat-preview " + classes;
-
-    return(
-        <div className={className}>
-            <img className="profile-pic" src={pfp} alt="Profile"/>
-            <div className="profile-name">{name}</div>
-            <div className="preview-date">{lastDate}</div>
-            <p className="last-message">{lastMessage}</p>
+    if (contact.classes.includes('selected-preview')) {
+        return (
+            <div className={className}>
+                <img className="profile-pic" src={contact.pfp} alt="Profile"/>
+                <div className="profile-name">{contact.name}</div>
+                <div className="preview-date">{lastMessage.date}</div>
+                <p className="last-message">{lastMessage.message}</p>
+            </div>
+        );
+    } else return (
+        <div onClick={() => changeSelection(contact)} className={className}>
+            <img className="profile-pic" src={contact.pfp} alt="Profile"/>
+            <div className="profile-name">{contact.name}</div>
+            <div className="preview-date">{lastMessage.date}</div>
+            <p className="last-message">{lastMessage.message}</p>
         </div>
     );
 }

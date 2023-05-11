@@ -157,7 +157,7 @@ body {
     overflow-y:auto;
 }
 
-#chat-footer {
+#message-send {
     height: 30px;
     position:relative;
     top:calc(100% - var(--listHeight) - 30px);

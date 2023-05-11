@@ -1,10 +1,10 @@
 import logo from "../Pictures/logo.png";
 
-function ChatTitle({pfp,name}){
+function ChatTitle({user}){
     return(
         <div id="chat-title">
-            <img className="profile-pic" src={pfp} alt="Profile"/>
-            <div className="profile-name">{name}</div>
+            <img className="profile-pic" src={user.pfp} alt="Profile"/>
+            <div className="profile-name">{user.name}</div>
             <img id="side-logo" src={logo} alt="Chatapp"></img>
         </div>
     );
