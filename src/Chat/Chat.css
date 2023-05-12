@@ -387,7 +387,7 @@ svg {
     font-size:40px !important;
 }
 
-@media(max-width:632px){
+@media(max-width:631px){
     #root {
         --chatWidth: 0;
         --listWidth: 100vw;
