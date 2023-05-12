@@ -23,7 +23,7 @@ function ChatList({chats, user, setSelectedUser}) {
     }
 
     window.addEventListener('resize', function () {
-        if (selected) {
+        if (selected&&document.getElementById('chat')!=null) {
             if (window.innerWidth < 632) {
                 document.getElementById('chat').classList.add('fullscreen');
                 document.getElementById('chat-list').classList.add('hidden');
