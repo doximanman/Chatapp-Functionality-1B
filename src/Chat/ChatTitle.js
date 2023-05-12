@@ -1,10 +1,15 @@
 import logo from "../Pictures/logo.png";
 
+import {setSelected} from "./ChatList";
+
+
+
 function ChatTitle({user}){
 
     function goBack(){
         document.getElementById('chat').classList.remove('fullscreen');
         document.getElementById('chat-list').classList.remove('hidden');
+        setSelected(false);
     }
 
 
