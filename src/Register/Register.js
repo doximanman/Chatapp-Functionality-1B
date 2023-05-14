@@ -7,6 +7,7 @@ import BottomMessage from '../FormsItems/BottomMessage';
 
 function Register() {
     return (
+        
         <form>
             <div id="register-form">
                 <Title title="Register to Message-Manager!"></Title>
