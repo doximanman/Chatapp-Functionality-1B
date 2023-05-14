@@ -3,7 +3,7 @@ function Input({ description }) {
         <div className="col-11 row ">
             <label className={description.labelClass}>{description.ins}</label>
             <div className={description.divClass}>
-                <input type={description.type} className="form-control" id={description.id} name={description.name}  required></input>
+                <input value={description.value} onChange={description.onChange} type={description.type} className={description.className} id={description.id} name={description.name} required></input>
             </div>
         </div>
     );

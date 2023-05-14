@@ -29,6 +29,10 @@ body {
     font-size: medium !important;
 }
 
+.small {
+    font-size: small !important;
+}
+
 form {
     display: flex;
     justify-content: center;
@@ -114,10 +118,6 @@ a {
     font-size: 3vh !important;
     font-weight: bolder !important;
 
-}
-
-#Display-Name {
-    font-size: 2vh !important;
 }
 
 .invalid-feedback {
