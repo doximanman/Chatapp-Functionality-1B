@@ -1,0 +1,319 @@
+:root {
+    --listWidth: 400px;
+    --listHeight: 60px;
+    --mainWidth: max(80vw, 700px);
+    --mainHeight: max(80vh, 500px);
+}
+
+body {
+    font-family: Comic Sans MS !important;
+}
+
+#background {
+    position: absolute;
+    z-index: 0;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../Pictures/logo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#main {
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    width: var(--mainWidth);
+    height: var(--mainHeight);
+    border: 1px solid #8c8c8c;
+    background-color: white;
+}
+
+#profile {
+    width: var(--listWidth);
+    height: var(--listHeight);
+    border-right: 1px solid #8c8c8c;
+    border-bottom: 1px solid #8c8c8c;
+    background-color: lightgray;
+}
+
+#chat-list {
+    width: var(--listWidth);
+    height: calc(100% - var(--listHeight));
+    border-right: 1px solid #8c8c8c;
+    background-color: #ffffff;
+}
+
+#chat {
+    position: absolute;
+    top: 0;
+    left: var(--listWidth);
+    width: calc(100% - var(--listWidth));
+    height: 100%;
+}
+
+#side-logo {
+    height: var(--listHeight);
+    width: auto;
+    float: right;
+    position: relative;
+    top: -133%;
+}
+
+.profile-pic {
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.profile-name {
+    position: relative;
+    top: -65%;
+    left: 70px;
+    font-size: 20px;
+}
+
+.last-message{
+    float:right;
+    position:relative;
+    top:-80%;
+    left:40%;
+}
+
+#add-chat {
+    position: relative;
+    top: -105%;
+    left: calc(100% - 25px);
+    cursor: pointer;
+    background-color: lightgray;
+    width: 20px;
+    height: 20px;
+}
+
+.chat-preview {
+    width: var(--listWidth);
+    height: var(--listHeight);
+    border-bottom: 1px solid #8c8c8c;
+    border-right: 1px solid #8c8c8c;
+}
+
+.selected-preview {
+    background-color: rgba(0, 178, 255, 0.78);
+    border-right: 1px solid #8c8c8c;
+    border-bottom: 1px solid #8c8c8c;
+    color: black;
+
+}
+
+
+#chat-title {
+    height: var(--listHeight);
+    border-bottom: 1px solid #8c8c8c;
+    background-color: #f2f2f2
+}
+
+#chat-body {
+    height: calc(100% - var(--listHeight) - 30px);
+    border-bottom: 1px solid #8c8c8c;
+    background-image: url("../Pictures/chat-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#chat-footer {
+    height: 30px;
+}
+
+#message-input {
+    width: calc(var(--mainWidth) - var(--listWidth) - 71px);
+    outline: none;
+    border-radius: 0;
+    border-width: 0;
+    height: 30px;
+}
+
+#send-icon {
+    position:absolute;
+    top:-5px;
+    left:13px;
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.message {
+    padding-left: 5px;
+    padding-top: 5px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    top: calc(100% - 100px);
+
+    text-align: center;
+    filter: drop-shadow(5px 3px 1px #A3A3A3);
+}
+
+.message-received {
+    position: relative;
+    left: 10px;
+    background-color: #c1e7f1;
+}
+
+.message-received:after {
+    content: '';
+    position: relative;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #c1e7f1 transparent;
+    display: block;
+    width: 0;
+    bottom: 10px;
+    left: 50px;
+}
+
+.message-sent {
+    padding-right: 5px;
+    position: relative;
+    left: calc(100% - 110px);
+    background-color: #82d0e3;
+}
+
+.message-sent:after {
+    content: '';
+    position: relative;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #82d0e3 transparent;
+    display: block;
+    width: 0;
+    bottom: 10px;
+    left: 10px;
+
+}
+
+.message-time {
+    color: ghostwhite;
+    font-size: 12px;
+    position: relative;
+    top: -20%;
+    left: 30%;
+}
+
+.preview-date {
+    font-size: 14px;
+    position: relative;
+    top: -130%;
+    float: right;
+    padding-right: 0.3vw;
+}
+
+.chat-preview:hover {
+    background: #c1e7f1;
+    transition: all .3s ease-in-out;
+}
+
+#send {
+    margin: 0;
+    width: 4vw;
+    position: relative;
+    top: -30px;
+    height: 2vh;
+    left: calc(100% - 66px);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* flex-wrap: wrap; */
+    /* width: 80vw; */
+    /* margin: 0 auto; */
+    /* min-height: 100vh; */
+    width: 68.67px;
+    height: 30px;
+    position: relative;
+    /* top: -30px; */
+    /* left: calc(100% - 66px); */
+    cursor: pointer;
+    text-align: center;
+}
+
+#send-btn {
+    width: 68.67px;
+    height: 30px;
+    text-align: center;
+    float: right;
+    padding: 0.1vh;
+    border-radius: 0%;
+}
+
+.button-8 {
+    justify-content: center;
+    align-items: center;
+    background-color: #eaf7fb;
+    border: 1px solid #82d0e3;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #82d0e3;
+    font-size: large !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    text-shadow: -1px 1px 0 #4d4d4d,
+        1px 1px 0 #4d4d4d,
+        1px -1px 0 #4d4d4d,
+        -1px -1px 0 #4d4d4d !important;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.button-8:hover {
+    background-color: #ccf3ff;
+    transition: all .3s ease-in-out;
+}
+
+svg {
+    width: 5.5vw;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.button-8:focus {
+    box-shadow: 0 0 0 4px #ccf3ff;
+    font-size: larger !important;
+    transition: all .3s step-start;
+}
+
+.button-8:active {
+    background-color: #c1e7f1;
+    box-shadow: none;
+}

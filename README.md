@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Chat App
+## The Aim of the App
+  This app aims to allow people to chat with each other from anywhere in the world easily and intuitively, from one app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Current functionality
+* ### Register page:
+  You can register to the website. Registration requires a username, password, a display name and a profile picture.
+  
+  Currently, the register page doesn't save your login credentials, and it is just cosmetic, to show the layout of the site
+  when future functionality is added.
+  
+  If you've already registered, you can click on the bottom of the page to go to the login page.
+    
+* ### Login page:
+  On this page you can login to the website using the credentials you've provided in the registration form.
+  
+  Currently the login button on the page doesn't send you to the chat page, since there is no mechanism (currently)
+  to check the credentials and whether they match a user that has registered in the past.
+  
+  If you haven't logged in yet, you can click on the bottom of the page to go the register page.
+    
+* ### Chat page:
+  This is the main page of the app. On the left you can see your display name and your profile picture at the top,
+  along with a button to add new chats to your chat list, which you can see right underneath.
+  
+  The chat list contains the list of all the chats that you have added in the past. Every chat is identified in the list
+  with a profile picture, a display name, and the last message sent or recieved, with its date.
+  
+  From the chat list you can select a chat to display on the right side. If a chat is selected, it will be highlighted
+  in blue.
+  
+  On the right side you can see the selected chat. At the top you have the other person's profile picture and display
+  name. Below that you have the chat itself containing all the messages, and below that you have the message box along
+  with a send button.
+  
+  Currently the chat page has no functionality, meaning you can't select a different chat than the one already selected,
+  you can't add new chats, and you can't send or recieve any messages.
+  
+## How to launch the project?
+  In order to run the project and browse the pages, all you have to do is double-click on the requested page and then visit the opened page at your favorite browser   platform (chrome recommended).
+  
