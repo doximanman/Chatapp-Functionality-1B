@@ -1,9 +1,9 @@
 function Input({ description }) {
     return (
-        <div class="col-11 row ">
-            <label class={description.labelClass}>{description.name}</label>
-            <div class={description.divClass}>
-                <input type={description.type} class="form-control" id={description.id} required></input>
+        <div className="col-11 row ">
+            <label className={description.labelClass}>{description.ins}</label>
+            <div className={description.divClass}>
+                <input type={description.type} className="form-control" id={description.id} name={description.name}  required></input>
             </div>
         </div>
     );

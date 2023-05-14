@@ -119,3 +119,10 @@ a {
 #Display-Name {
     font-size: 2vh !important;
 }
+
+.invalid-feedback {
+    display: flex !important;
+    margin-left: 33vw;
+    margin-top: 0.5vh !important;
+    margin-bottom: 0.5vh;
+}
