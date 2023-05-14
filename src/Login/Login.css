@@ -1,15 +1,29 @@
+/*body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}*/
+
 body {
     font-family: Comic Sans MS !important;
     color: #4d4d4d !important;
     font-weight: bold !important;
     font-size: larger !important;
-}
-
-.row {
-    margin: 3vh;
-}
-
-h1 {
+  }
+  
+  .row {
+    margin: 2vh;
+  }
+  
+  h1 {
     text-align: center;
     font-size: 4.5vw !important;
     color: white !important;
@@ -18,9 +32,9 @@ h1 {
         1px 1px 0 #4d4d4d,
         1px -1px 0 #4d4d4d,
         -1px -1px 0 #4d4d4d !important;
-}
-
-#login-form {
+  }
+  
+  #login-form {
     font-size: large;
     width: 80vw;
     background-color: rgba(247, 255, 245, 0.6);
@@ -33,9 +47,9 @@ h1 {
     border-style: double;
     border-width: 0.7vw;
     border-color: white;
-}
-
-#background {
+  }
+  
+  /* #background {
     position: absolute;
     z-index: 1;
     -webkit-filter: blur(5px);
@@ -45,12 +59,12 @@ h1 {
     filter: blur(5px);
     width: 100vw;
     height: 100vh;
-    background-image: url("../Pictures/background.png");
+    background-image: url("Pictures/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-form {
+  } */
+  
+  form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,16 +72,16 @@ form {
     height: 100vh;
     z-index: 2;
     position: relative;
-}
-
-#not-registered {
+  }
+  
+  #not-registered {
     color: #8c8c8c;
     text-shadow: 0 0 100px white, 0 0 100px white;
     -webkit-text-stroke-width: 0.7px;
     -webkit-text-stroke-color: #4d4d4d;
-}
-
-#logo {
+  }
+  
+  #logo {
     position: relative;
     height: 25vh;
     width: 15vw;
@@ -76,23 +90,23 @@ form {
     float: left;
     display: inline;
     border-radius: 50%;
-}
-
-#open {
+  }
+  
+  #open {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 25vh;
-}
-
-h1 {
+  }
+  
+  h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.btn-primary {
+  }
+  
+  .btn-primary {
     --bs-btn-bg: #97d7e7 !important;
     --bs-btn-border-color: #97d7e7 !important;
     --bs-btn-hover-bg: #82d0e3 !important;
@@ -104,17 +118,17 @@ h1 {
     font-weight: bolder !important;
     font-size: large !important;
     border-width: 0.5vh !important;
-}
-
-a {
+  }
+  
+  a {
     color: #82d0e3 !important;
-}
-
-.name {
+  }
+  
+  .name {
     color: #8c8c8c;
     -webkit-text-stroke-width: 0.7px;
     -webkit-text-stroke-color: black;
     font-size: 3.4vh !important;
     font-weight: bolder !important;
-
-}
+  
+  }

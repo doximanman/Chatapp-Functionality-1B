@@ -1,52 +1,24 @@
-import logo from "../Pictures/logo.png"
 import "./Register.css"
+import Input from '../FormsItems/Input';
+import Button from '../FormsItems/Button';
+import Title from '../FormsItems/Title';
+import Background from '../FormsItems/Background';
+import BottomMessage from '../FormsItems/BottomMessage';
 
-function Register(){
-    return(
-        <>
-            <form>
-                <div id="register-form">
-                    <div id="open" className="col-12">
-                        <img id="logo" src={logo} alt="logo"/>
-                            <h1 className="col-10">Register to Message-Manager!</h1>
-                    </div>
-                    <div className="col-11 row ">
-                        <label className="col-sm-2 col-form-label name">Username</label>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" id="Username" required />
-                        </div>
-                    </div>
-                    <div className="col-11 row">
-                        <label className="col-sm-2 col-form-label name">Password</label>
-                        <div className="col-sm-10">
-                            <input type="password" className="form-control" id="Password" required />
-                        </div>
-                    </div>
-                    <div className="col-11 row">
-                        <label className="col-sm-2 col-form-label name">Repeat Password</label>
-                        <div className="col-sm smaller">
-                            <input type="password" className="form-control" id="Repeat-Password" required />
-                        </div>
-                    </div>
-                    <div className="col-11 row">
-                        <label className="col-sm-2 col-form-label name smaller">Display Name</label>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" id="Display-Name" required />
-                        </div>
-                    </div>
-                    <div className="col-11 row">
-                        <label className="col-sm-2 col-form-label name">Picture</label>
-                        <div className="col-sm-10">
-                            <input className="form-control" type="file" id="Picture" required />
-                        </div>
-                    </div>
-                    <button id="register-button" type="submit" className="btn btn-primary">Register</button>
-                    <div id="already-registered">Already registered? Click here to
-                        login
-                    </div>
-                </div>
-            </form>
-        </>
+function Register() {
+    return (
+        <form>
+            <div id="register-form">
+                <Title title="Register to Message-Manager!"></Title>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Username", divClass: "col-sm-10", type: "text", id: "Username" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Password", divClass: "col-sm-10", type: "password", id: "Password" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Repeat Password", divClass: "col-sm smaller", type: "password", id: "Repeat-Password" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name smaller", name: "Display Name", divClass: "col-sm-10", type: "text", id: "Display-Name" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
+                <Button description={{ id: "register-button", name: "Register" }}></Button>
+                <BottomMessage description={{ id: "already-registered", question: "Already registered? ", link: "/Login", click: "Click here", goal: " to login" }}></BottomMessage>
+            </div>
+        </form>
     );
 }
 
