@@ -37,6 +37,7 @@ function Profile({ user, setContacts }) {
         navigate("/Login");
     }
         
+
     return (
         <div id="profile">
             <img className="profile-pic" src={user.pfp} alt="Profile" />
