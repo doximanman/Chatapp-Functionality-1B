@@ -66,8 +66,6 @@ function Register() {
         });
     }
 
-
-
     return (
         <form>
             <div id="register-form">
