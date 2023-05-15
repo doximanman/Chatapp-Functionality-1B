@@ -2,7 +2,22 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Chat from "./Chat/Chat"
 import Login from "./Login/Login";
 import Register from "./Register/Register"
+import React, { useEffect } from 'react';
+
 function App(){
+    
+    useEffect(() => {
+        window.onbeforeunload = function() {
+            localStorage.clear();
+         }
+
+        const storedUsers = localStorage.getItem('users');
+        if (!storedUsers) {
+          localStorage.setItem('users', JSON.stringify([]));
+        }
+      }, []);
+    
+
     return(
         <BrowserRouter>
             <Routes>
