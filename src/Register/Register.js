@@ -22,6 +22,8 @@ function Register() {
         RepeatPassword: '',
         DisplayName: ''
     })
+
+    const [touched, setTouched] = React.useState(false);
     const onInputChange = e => {
         const { name, value } = e.target;
         setInput(prev => ({
@@ -60,7 +62,6 @@ function Register() {
                 default:
                     break;
             }
-
             return stateObj;
         });
     }
@@ -71,13 +72,13 @@ function Register() {
         <form>
             <div id="register-form">
                 <Title title="Register to Message-Manager!"></Title>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Username", name: "Username", divClass: "col-sm-10", type: "text", id: "Username", value: input.Username, onChange: onInputChange, className: error.Username ? "is-invalid form-control" : "is-valid form-control" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Username", name: "Username", divClass: "col-sm-10", type: "text", id: "Username", value: input.Username, onChange: onInputChange, className: error.Username ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.Username && <span className='err invalid-feedback small'>{error.Username}</span>}
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Password", name: "Password", divClass: "col-sm-10", type: "password", id: "Password", value: input.Password, onChange: onInputChange, className: error.Password ? "is-invalid form-control" : "is-valid form-control" }}></Input>
+                <Input onBlur={() => setTouched(true)} description={{ labelClass: "col-sm-2 col-form-label name", ins: "Password", name: "Password", divClass: "col-sm-10", type: "password", id: "Password", value: input.Password, onChange: onInputChange, className: error.Password ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.Password && <span className='err invalid-feedback small'>{error.Password}</span>}
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Repeat Password", name: "RepeatPassword", divClass: "col-sm-10 smaller", type: "password", id: "Repeat-Password", value: input.RepeatPassword, onChange: onInputChange, className: error.RepeatPassword ? "is-invalid form-control" : "is-valid form-control" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Repeat Password", name: "RepeatPassword", divClass: "col-sm-10 smaller", type: "password", id: "Repeat-Password", value: input.RepeatPassword, onChange: onInputChange, className: error.RepeatPassword ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.RepeatPassword && <span className='err invalid-feedback small'>{error.RepeatPassword}</span>}
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Display Name", name: "DisplayName", divClass: "col-sm-10", type: "text", id: "Display-Name", value: input.DisplayName, onChange: onInputChange, className: error.DisplayName ? "is-invalid form-control" : "is-valid form-control" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Display Name", name: "DisplayName", divClass: "col-sm-10", type: "text", id: "Display-Name", value: input.DisplayName, onChange: onInputChange, className: error.DisplayName ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.DisplayName && <span className='err invalid-feedback small'>{error.DisplayName}</span>}
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
                 <Button description={{ id: "register-button", name: "Register" }}></Button>
