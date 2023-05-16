@@ -4,12 +4,15 @@ import Button from '../FormsItems/Button';
 import Title from '../FormsItems/Title';
 import BottomMessage from '../FormsItems/BottomMessage';
 import React, { useState } from 'react';
+import { flushSync } from "react-dom";
+import { useNavigate } from "react-router-dom"
+
 
 
 function Register() {
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     const usernameRegExp = /^[a-zA-Z0-9-_!.]{4,20}$/;
-    
+
     const [input, setInput] = useState({
         Username: '',
         Password: '',
@@ -34,6 +37,16 @@ function Register() {
             [name]: value
         }));
         validateInput(e);
+    }
+
+    const isUserExist = (username, password) => {
+        let users = JSON.parse(sessionStorage.getItem('users'));
+        for (let i = 0; i < users.length; i++) {
+            if (users[i]['username'] === username && users[i]['password'] === password) {
+                return true;
+            }
+        }
+        return false;
     }
 
     const validateInput = e => {
@@ -75,23 +88,33 @@ function Register() {
             return stateObj;
         });
     }
-
-    const handleRegister = () => {
+     
+    const navigate = useNavigate();
+    const handleRegister = e => {
+        e.preventDefault();
         const username = input.Username;
         const password = input.Password;
-        const displayName = input.DisplayName;
-        const picture = input.Picture;
-        const userData = { username, password, displayName, picture };
-        const storedUsers = localStorage.getItem('users');
-        let users = [];
-        if (storedUsers) {
-            users = JSON.parse(storedUsers);
+        if (isUserExist(username, password)) {
+            setError(prev => ({
+                ...prev,
+                Username: "Username already exist, please try again.",
+                Password: "Password already exist, please try again."
+              }));
         }
-        users.push(userData);
-        localStorage.setItem('users', JSON.stringify(users));
-    };
-
-
+        else {
+            const displayName = input.DisplayName;
+            const picture = input.Picture;
+            const userData = { username, password, displayName, picture };
+            const storedUsers = sessionStorage.getItem('users');
+            let users = [];
+            if (storedUsers) {
+                users = JSON.parse(storedUsers);
+            }
+            users.push(userData);
+            sessionStorage.setItem('users', JSON.stringify(users));
+            navigate("/Chat");
+        }
+    }
 
     return (
         <form>
@@ -108,6 +131,7 @@ function Register() {
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
                 {error.Picture && <span className='err invalid-feedback small'>{error.Picture}</span>}
                 <Button description={{ id: "register-button", name: "Register", onClick: handleRegister }}></Button>
+                {/* {isExist[0] && <span className='err invalid-feedback small'>"Username and password already exist, please try again."</span>} */}
                 <BottomMessage description={{ id: "already-registered", question: "Already registered? ", link: "/Login", click: "Click here", goal: " to login" }}></BottomMessage>
             </div>
         </form>
