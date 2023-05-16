@@ -4,9 +4,7 @@ import Button from '../FormsItems/Button';
 import Title from '../FormsItems/Title';
 import BottomMessage from '../FormsItems/BottomMessage';
 import React, { useState } from 'react';
-import { flushSync } from "react-dom";
 import { useNavigate } from "react-router-dom"
-
 
 
 function Register() {
@@ -97,8 +95,7 @@ function Register() {
         if (isUserExist(username, password)) {
             setError(prev => ({
                 ...prev,
-                Username: "Username already exist, please try again.",
-                Password: "Password already exist, please try again."
+                Username: "Username and password already exist, please try again."
               }));
         }
         else {
@@ -112,7 +109,7 @@ function Register() {
             }
             users.push(userData);
             sessionStorage.setItem('users', JSON.stringify(users));
-            navigate("/Chat");
+            navigate("/Login");
         }
     }
 
@@ -131,7 +128,6 @@ function Register() {
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
                 {error.Picture && <span className='err invalid-feedback small'>{error.Picture}</span>}
                 <Button description={{ id: "register-button", name: "Register", onClick: handleRegister }}></Button>
-                {/* {isExist[0] && <span className='err invalid-feedback small'>"Username and password already exist, please try again."</span>} */}
                 <BottomMessage description={{ id: "already-registered", question: "Already registered? ", link: "/Login", click: "Click here", goal: " to login" }}></BottomMessage>
             </div>
         </form>
