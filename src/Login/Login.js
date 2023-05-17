@@ -54,8 +54,8 @@ function Login() {
         const username = input.Username;
         const password = input.Password;
         const isUserExistCode = isUserExist(username, password);
-        if (isUserExistCode  >= 0) {
-            sessionStorage.setItem('currentUser', JSON.stringify(JSON.parse(sessionStorage.getItem('users'))[isUserExistCode]) );
+        if (isUserExistCode >= 0) {
+            sessionStorage.setItem('currentUser', JSON.stringify(JSON.parse(sessionStorage.getItem('users'))[isUserExistCode]));
             navigate("/Chat");
         }
         else if (isUserExistCode === -1) {

@@ -62,6 +62,7 @@ function App() {
                 <Route path="/Register" element={<Register />}></Route>
             </Routes>
         </BrowserRouter>
+        
     );
 
 }
