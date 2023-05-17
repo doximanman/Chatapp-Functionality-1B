@@ -39,13 +39,15 @@
   Currently you cannot receive messages because all the data is stored in memory and is local.
   Messages are reset on login.
   
+  Pay attention that a you cannot browse the chat page unless you are connected to the app by insert your correct username and password to the login page.
+  
 ## How to launch the project?
   In order to run the project you'll need to have NodeJS installed (preferably version 20 and above), then follow these steps:
   1. save the files in a folder (unzipped)
   2. from the folder, run the command:
 
      ```
-     npm i react, react-dom, react-router-dom
+     npm i react react-dom react-router-dom
      npm start
      ```
   3. Now your default browser will open on the url "localhost:3000", which will load the page.
