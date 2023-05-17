@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat from "./Chat/Chat"
 import Login from "./Login/Login";
@@ -61,7 +62,6 @@ function App() {
                 <Route path="/Register" element={<Register />}></Route>
             </Routes>
         </BrowserRouter>
-        
     );
 
 }
