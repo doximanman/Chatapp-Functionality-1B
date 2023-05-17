@@ -11,7 +11,13 @@ function App() {
         if (!storedUsers) {
             sessionStorage.setItem('users', JSON.stringify([]));
         }
+        const currentUser = sessionStorage.getItem('currentUser');
+        if (!currentUser) {
+            sessionStorage.setItem('currentUser', JSON.stringify([]));
+        }
         }, []);
+        
+       
         
     // useEffect(() => {
     //     const clearLocalStorage = () => {

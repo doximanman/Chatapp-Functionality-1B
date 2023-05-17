@@ -36,16 +36,16 @@ function Login() {
         let users = JSON.parse(sessionStorage.getItem('users'));
         for (let i = 0; i < users.length; i++) {
             if (users[i]['username'] === username && users[i]['password'] === password) {
-                return 1;
+                return i;
             }
             else if (users[i]['username'] === username) {
-                return 2;
+                return -1;
             }
             else if (users[i]['password'] === password) {
-                return 3;
+                return -2;
             }
         }
-        return 0;
+        return -3;
     }
 
     const navigate = useNavigate();
@@ -54,16 +54,17 @@ function Login() {
         const username = input.Username;
         const password = input.Password;
         const isUserExistCode = isUserExist(username, password);
-        if (isUserExistCode === 1) {
+        if (isUserExistCode  >= 0) {
+            sessionStorage.setItem('currentUser', JSON.stringify(JSON.parse(sessionStorage.getItem('users'))[isUserExistCode]) );
             navigate("/Chat");
         }
-        else if (isUserExistCode === 2) {
+        else if (isUserExistCode === -1) {
             setError(prev => ({
                 ...prev,
                 Password: "Password is wrong, please try again."
             }));
         }
-        else if (isUserExistCode === 3) {
+        else if (isUserExistCode === -2) {
             setError(prev => ({
                 ...prev,
                 Username: "Username is wrong, please try again."

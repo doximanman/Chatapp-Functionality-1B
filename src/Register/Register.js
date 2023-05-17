@@ -37,6 +37,31 @@ function Register() {
         validateInput(e);
     }
 
+    const onPictureChange = e => {
+        // const file = e.target.files[0];
+        // console.log(file);
+        // setInput(prev => ({
+        //     ...prev,
+        //     Picture: file
+        // }));
+        setError(prev => ({
+            ...prev,
+            Picture: ""
+        }));
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setInput(prev => ({
+                    ...prev,
+                    Picture: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+
+    }
+
     const isUserExist = (username, password) => {
         let users = JSON.parse(sessionStorage.getItem('users'));
         for (let i = 0; i < users.length; i++) {
@@ -74,33 +99,67 @@ function Register() {
                         stateObj[name] = "Please don't use your real name for the displayed name.";
                     }
                     break;
-                case "Picture":
-                    if (!e.target.files[0]) {
-                        console.log("hey");
-                        stateObj[name] = "Please choode a picture."
-                        break;
-                    }
                 default:
                     break;
             }
             return stateObj;
         });
     }
-     
+
     const navigate = useNavigate();
     const handleRegister = e => {
         e.preventDefault();
         const username = input.Username;
         const password = input.Password;
+        const repeatPassword = input.RepeatPassword;
+        const displayName = input.DisplayName;
+        const picture = input.Picture;
+        let error = 0;
+        if (!username || !usernameRegExp.test(username)) {
+            setError(prev => ({
+                ...prev,
+                Username: "Username must contain 4-20 characters, can include letters, digits and _-!."
+            }));
+            error = 1;
+        }
+        if (!password || !passwordRegExp.test(password)) {
+            setError(prev => ({
+                ...prev,
+                Password: "The passwors must contain 8-20 characters, at least one uppercase and lowercase leters, special character and digit."
+            }));
+            error = 1;
+        }
+        if (!repeatPassword || password !== repeatPassword) {
+            setError(prev => ({
+                ...prev,
+                RepeatPassword: "Password and reapeated Password does not match."
+            }));
+            error = 1;
+        }
+        if (!displayName || displayName === username) {
+            setError(prev => ({
+                ...prev,
+                DisplayName: "Please enter display name that is different from your real name."
+            }));
+            error = 1;
+        }
+        if (!picture) {
+            setError(prev => ({
+                ...prev,
+                Picture: "Please choose a picture."
+            }));
+            error = 1;
+        }
+        if (error) {
+            return;
+        }
         if (isUserExist(username, password)) {
             setError(prev => ({
                 ...prev,
                 Username: "Username and password already exist, please try again."
-              }));
+            }));
         }
         else {
-            const displayName = input.DisplayName;
-            const picture = input.Picture;
             const userData = { username, password, displayName, picture };
             const storedUsers = sessionStorage.getItem('users');
             let users = [];
@@ -125,7 +184,7 @@ function Register() {
                 {error.RepeatPassword && <span className='err invalid-feedback small'>{error.RepeatPassword}</span>}
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Display Name", name: "DisplayName", divClass: "col-sm-10", type: "text", id: "Display-Name", value: input.DisplayName, onChange: onInputChange, className: error.DisplayName ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.DisplayName && <span className='err invalid-feedback small'>{error.DisplayName}</span>}
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
+                <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture", onChange: onPictureChange }}></Input>
                 {error.Picture && <span className='err invalid-feedback small'>{error.Picture}</span>}
                 <Button description={{ id: "register-button", name: "Register", onClick: handleRegister }}></Button>
                 <BottomMessage description={{ id: "already-registered", question: "Already registered? ", link: "/Login", click: "Click here", goal: " to login" }}></BottomMessage>
