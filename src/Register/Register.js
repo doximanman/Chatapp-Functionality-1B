@@ -38,12 +38,6 @@ function Register() {
     }
 
     const onPictureChange = e => {
-        // const file = e.target.files[0];
-        // console.log(file);
-        // setInput(prev => ({
-        //     ...prev,
-        //     Picture: file
-        // }));
         setError(prev => ({
             ...prev,
             Picture: ""

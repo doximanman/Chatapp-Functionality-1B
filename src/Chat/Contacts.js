@@ -3,7 +3,7 @@ import user2PFP from "../Pictures/user2-icon.jpg";
 
 const contacts = [{
     pfp: userPFP,
-    name: "Bill Tinnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+    name: "Bill Tin",
     lastDate: "25/4/2023, 11:01:54 PM",
     lastMessage: "WORLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD!",
     classes: "selected-preview",
