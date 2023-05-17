@@ -12,6 +12,8 @@ function ChatTitle({user}){
         setSelected(false);
     }
 
+
+
     return(
         <div id="chat-title">
             <img className="profile-pic" src={user.pfp} alt="Profile"/>
