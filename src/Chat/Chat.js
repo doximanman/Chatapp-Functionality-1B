@@ -27,7 +27,7 @@ function Chat() {
         if (!JSON.parse(sessionStorage.getItem('currentUser'))['username']) {
             navigate("/Login");
         }
-      }, []);
+    }, []);
 
     return (
         <div id="main">

@@ -27,7 +27,6 @@ function Register() {
         Picture: ''
     })
 
-
     const onInputChange = e => {
         const { name, value } = e.target;
         setInput(prev => ({
