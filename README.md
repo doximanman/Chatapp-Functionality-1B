@@ -6,22 +6,24 @@
 * ### Register page:
   You can register to the website. Registration requires a username, password, a display name and a profile picture.
   
-  Currently, the register page doesn't save your login credentials, and it is just cosmetic, to show the layout of the site
-  when future functionality is added.
+  Once you provide valid credentials (specified by the requirements that show when you start typing), you can hit the "register" button and
+  you will be fully registered and sent to the login page to log in.
+  (note: registrations only last per session- meaning on a refresh of the page or a restart of the server the registered accounts will reset.)
   
   If you've already registered, you can click on the bottom of the page to go to the login page.
     
 * ### Login page:
   On this page you can login to the website using the credentials you've provided in the registration form.
   
-  Currently the login button on the page doesn't send you to the chat page, since there is no mechanism (currently)
-  to check the credentials and whether they match a user that has registered in the past.
+  Once you typed in your username and password, they will be checked and validated according to past registrations.
+  If the username-password combo match an existing registered user you will be logged in and set to the chat page.
   
   If you haven't logged in yet, you can click on the bottom of the page to go the register page.
     
 * ### Chat page:
   This is the main page of the app. On the left you can see your display name and your profile picture at the top,
-  along with a button to add new chats to your chat list, which you can see right underneath.
+  along with a button to add new chats to your chat list, which you can see right underneath. You can also logout
+  using the red button that says "logout".
   
   The chat list contains the list of all the chats that you have added in the past. Every chat is identified in the list
   with a profile picture, a display name, and the last message sent or recieved, with its date.
@@ -33,9 +35,17 @@
   name. Below that you have the chat itself containing all the messages, and below that you have the message box along
   with a send button.
   
-  Currently the chat page has no functionality, meaning you can't select a different chat than the one already selected,
-  you can't add new chats, and you can't send or recieve any messages.
+  You can change the selected chat, add a new contact, send messages, and logout.
+  Currently you cannot receive messages because all the data is stored in memory and is local.
+  Messages are reset on login.
   
 ## How to launch the project?
-  In order to run the project and browse the pages, all you have to do is double-click on the requested page and then visit the opened page at your favorite browser   platform (chrome recommended).
+  In order to run the project you'll need to have NodeJS installed (preferably version 20 and above), then follow these steps:
+  1. save the files in a folder (unzipped)
+  2. from the folder, run the command:
+     ```
+     npm i react, react-dom, react-router-dom
+     npm start
+     ```
+  3. Now your default browser will open on the url "localhost:3000", which will load the page.
   
