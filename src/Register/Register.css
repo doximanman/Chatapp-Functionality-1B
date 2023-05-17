@@ -6,7 +6,7 @@ body {
 }
 
 .row {
-    margin: 2vh;
+    margin: 1vh;
 }
 
 
@@ -29,6 +29,10 @@ body {
     font-size: medium !important;
 }
 
+.small {
+    font-size: small !important;
+}
+
 form {
     display: flex;
     justify-content: center;
@@ -48,8 +52,8 @@ form {
 
 #logo {
     position: relative;
-    height: 25vh;
-    width: 15vw;
+    height: 22vh;
+    width: 12vw;
     margin-top: auto;
     margin-right: auto;
     float: left;
@@ -116,6 +120,9 @@ a {
 
 }
 
-#Display-Name {
-    font-size: 2vh !important;
+.invalid-feedback {
+    display: flex !important;
+    margin-left: 33vw;
+    margin-top: 0.5vh !important;
+    margin-bottom: 0.5vh;
 }
