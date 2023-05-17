@@ -2,12 +2,6 @@ import "./Register.css"
 import Input from '../FormsItems/Input';
 import Button from '../FormsItems/Button';
 import Title from '../FormsItems/Title';
-<<<<<<< HEAD
-import Background from '../FormsItems/Background';
-import BottomMessage from '../FormsItems/BottomMessage';
-
-function Register() {
-=======
 import BottomMessage from '../FormsItems/BottomMessage';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
@@ -178,19 +172,10 @@ function Register() {
         }
     }
 
->>>>>>> register-dev
     return (
         <form>
             <div id="register-form">
                 <Title title="Register to Message-Manager!"></Title>
-<<<<<<< HEAD
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Username", divClass: "col-sm-10", type: "text", id: "Username" }}></Input>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Password", divClass: "col-sm-10", type: "password", id: "Password" }}></Input>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Repeat Password", divClass: "col-sm smaller", type: "password", id: "Repeat-Password" }}></Input>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name smaller", name: "Display Name", divClass: "col-sm-10", type: "text", id: "Display-Name" }}></Input>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Picture", divClass: "col-sm-10", type: "file", id: "Picture" }}></Input>
-                <Button description={{ id: "register-button", name: "Register" }}></Button>
-=======
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Username", name: "Username", divClass: "col-sm-10", type: "text", id: "Username", value: input.Username, onChange: onInputChange, className: error.Username ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.Username && <span className='err invalid-feedback small'>{error.Username}</span>}
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Password", name: "Password", divClass: "col-sm-10", type: "password", id: "Password", value: input.Password, onChange: onInputChange, className: error.Password ? "is-invalid form-control" : "form-control" }}></Input>
@@ -202,7 +187,6 @@ function Register() {
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Picture", divClass: "col-sm-10", type: "file", id: "Picture", onChange: onPictureChange }}></Input>
                 {error.Picture && <span className='err invalid-feedback small'>{error.Picture}</span>}
                 <Button description={{ id: "register-button", name: "Register", onClick: handleRegister }}></Button>
->>>>>>> register-dev
                 <BottomMessage description={{ id: "already-registered", question: "Already registered? ", link: "/Login", click: "Click here", goal: " to login" }}></BottomMessage>
             </div>
         </form>

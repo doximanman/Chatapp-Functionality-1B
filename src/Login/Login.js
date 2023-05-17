@@ -4,11 +4,8 @@ import Button from '../FormsItems/Button';
 import Title from '../FormsItems/Title';
 import Background from '../FormsItems/Background';
 import BottomMessage from '../FormsItems/BottomMessage';
-<<<<<<< HEAD
-=======
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"
->>>>>>> register-dev
 
 function Login() {
     const [input, setInput] = useState({
@@ -57,8 +54,8 @@ function Login() {
         const username = input.Username;
         const password = input.Password;
         const isUserExistCode = isUserExist(username, password);
-        if (isUserExistCode  >= 0) {
-            sessionStorage.setItem('currentUser', JSON.stringify(JSON.parse(sessionStorage.getItem('users'))[isUserExistCode]) );
+        if (isUserExistCode >= 0) {
+            sessionStorage.setItem('currentUser', JSON.stringify(JSON.parse(sessionStorage.getItem('users'))[isUserExistCode]));
             navigate("/Chat");
         }
         else if (isUserExistCode === -1) {
@@ -85,17 +82,11 @@ function Login() {
         <form>
             <div id="login-form">
                 <Title title="Login to Message-Manager!"></Title>
-<<<<<<< HEAD
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Username", divClass: "col-sm-10", type: "text", id: "Username" }}></Input>
-                <Input description={{ labelClass: "col-sm-2 col-form-label name", name: "Password", divClass: "col-sm-10", type: "password", id: "Password" }}></Input>
-                <Button description={{ id: "login-button", name: "Login" }}></Button>
-=======
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Username", name: "Username", divClass: "col-sm-10", type: "text", id: "Username", value: input.Username, onChange: onInputChange, className: error.Username ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.Username && <span className='err invalid-feedback small'>{error.Username}</span>}
                 <Input description={{ labelClass: "col-sm-2 col-form-label name", ins: "Password", name: "Password", divClass: "col-sm-10", type: "password", id: "Password", value: input.Password, onChange: onInputChange, className: error.Password ? "is-invalid form-control" : "form-control" }}></Input>
                 {error.Password && <span className='err invalid-feedback small'>{error.Password}</span>}
                 <Button description={{ id: "login-button", name: "Login", onClick: handleLogin }}></Button>
->>>>>>> register-dev
                 <BottomMessage description={{ id: "not-registered", question: "Not regitered? ", link: "/Register", click: "Click here", goal: " to register" }}></BottomMessage>
             </div>
         </form >
