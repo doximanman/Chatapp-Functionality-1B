@@ -43,6 +43,7 @@
   In order to run the project you'll need to have NodeJS installed (preferably version 20 and above), then follow these steps:
   1. save the files in a folder (unzipped)
   2. from the folder, run the command:
+
      ```
      npm i react, react-dom, react-router-dom
      npm start
