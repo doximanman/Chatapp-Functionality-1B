@@ -1,79 +1,41 @@
 import "./Chat.css"
-import mainPFP from "../Pictures/user3-icon.jpg"
-import add from "../Pictures/add.png"
-import userPFP from "../Pictures/user1-icon.jpg"
-import user2PFP from "../Pictures/user2-icon.jpg"
-import logo from "../Pictures/logo.png"
-import sendIcon from "../Pictures/send-icon.png"
+import mainPFP from "../Pictures/user3-icon.jpg";
+import Profile from "./Profile";
+import ChatTitle from "./ChatTitle";
+import {useState} from "react";
+import MessageList from "./MessageList";
+import ChatList from "./ChatList";
+import contacts from "./Contacts"
+import MessageSender from "./MessageSender";
 
 function Chat() {
+
+    // whenever a contact is added, the page is re-rendered.
+    const [chats,setContacts]=useState(contacts);
+
+    const user = {
+        pfp: mainPFP,
+        name: "Alice Smithhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+    }
+
+    const[selectedUser,setSelectedUser]=useState(chats.filter((contact) => {
+        return contact.classes.includes("selected-preview");
+    })[0]);
+
     return (
         <>
             <div id="main">
-                <div id="profile">
-                    <img className="profile-pic" src={mainPFP} alt="Profile"/>
-                    <div className="profile-name">User Name</div>
-                    <img id="add-chat" data-bs-toggle="modal" data-bs-target="#addChat" src={add}
-                         alt="New Chat"/>
-                    <div className="modal" id="addChat" aria-labelledby="addChatTitle">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title" id="addChatTitle">Add a New Chat</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <input type="text" className="col-12" placeholder="Contact Name"/>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="chat-list">
-                    <div className="chat-preview selected-preview">
-                        <img className="profile-pic" src={userPFP} alt="Profile"/>
-                        <div className="profile-name">Bill Tin</div>
-                        <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <div className="last-message">World!</div>
-                    </div>
-                    <div className="chat-preview">
-                        <img className="profile-pic" src={user2PFP} alt="Profile"/>
-                        <div className="profile-name">Jack Black</div>
-                        <div className="preview-date">25/4/2023, 11:01:54 PM</div>
-                        <div className="last-message">Foo!</div>
-                    </div>
-                </div>
+                <Profile user={user} setContacts={setContacts}/>
+                <ChatList chats={chats} user={selectedUser} setSelectedUser={setSelectedUser}/>
                 <div id="chat">
-                    <div id="chat-title">
-                        <img className="profile-pic" src={userPFP} alt="Profile"/>
-                        <div className="profile-name">Bill Tin</div>
-                        <img id="side-logo" src={logo} alt="Chatapp"></img>
-                    </div>
-                    <div id="chat-body">
-                        <div className="message message-received bubble">Hello!
-                            <div className="message-time">00:00</div>
-                        </div>
-                        <div className="message message-sent bubble">World!
-                            <div className="message-time">00:00</div>
-                        </div>
-                    </div>
-                    <div id="chat-footer">
-                        <input type="text" id="message-input" placeholder="Type your message..."/>
-                        <button id="send-btn" type="submit" className="button-8">
-                            <img id="send-icon" src={sendIcon} height="40" alt="send"/>
-                        </button>
-                    </div>
+                    <ChatTitle user={selectedUser}/>
+                    <MessageList user={selectedUser} />
+                    <MessageSender contact={selectedUser} setSelectedUser={setSelectedUser} />
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-                        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-                        crossOrigin="anonymous"></script>
             </div>
         </>
     );
 }
+
 
 export default Chat
