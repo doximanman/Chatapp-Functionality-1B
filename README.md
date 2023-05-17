@@ -39,7 +39,7 @@
   Currently you cannot receive messages because all the data is stored in memory and is local.
   Messages are reset on login.
   
-  Pay attention that a you cannot browse the chat page unless you are connected to the app by insert your correct username and password to the login page.
+  Pay attention that you cannot browse the chat page unless you are connected to the app by inserting your correct username and password to the login page.
   
 ## How to launch the project?
   In order to run the project you'll need to have NodeJS installed (preferably version 20 and above), then follow these steps:
